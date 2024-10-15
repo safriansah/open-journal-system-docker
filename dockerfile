@@ -11,13 +11,13 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip pdo pdo_mysql pdo_pgsql xml mbstring opcache
+    && docker-php-ext-install gd zip pdo pdo_mysql pdo_pgsql xml mbstring opcache pgsql
 
 # Enable Apache mod_rewrite (if needed)
 RUN a2enmod rewrite
 
 # Enable the extensions (optional, usually automatic)
-# RUN docker-php-ext-enable pdo_pgsql pgsql mysqli pdo_mysql
+RUN docker-php-ext-enable pdo_pgsql pgsql pdo_mysql
 
 # Ubah pemilik direktori html
 RUN chown -R www-data:www-data /var/www/html
