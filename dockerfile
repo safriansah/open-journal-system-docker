@@ -11,3 +11,4 @@ RUN docker-php-ext-enable pdo_pgsql pgsql mysqli pdo_mysql
 
 # Ubah pemilik direktori html
 RUN chown -R www-data:www-data /var/www/html
+RUN sudo chmod -R 775 /var/www/html
