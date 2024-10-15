@@ -12,7 +12,6 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html/public
     networks:
       - app-network
-    user: "root" 
 
 networks:
   app-network:
