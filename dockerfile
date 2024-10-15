@@ -1,18 +1,17 @@
 FROM php:7-apache
 
-# Install necessary system packages and PHP extensions
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     libzip-dev \
-    zip \
-    unzip \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libonig-dev \
     libxml2-dev \
+    libonig-dev \
+    libpq-dev \
+    unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql mysqli
+    && docker-php-ext-install gd zip pdo pdo_mysql pdo_pgsql xml mbstring opcache
 
 # Enable Apache mod_rewrite (if needed)
 RUN a2enmod rewrite
