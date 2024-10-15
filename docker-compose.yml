@@ -6,7 +6,6 @@ services:
     container_name: php_apache_server
     ports:
       - "${PORT:-8040}:80"
-      - "${PORT_SSL:-8443}:443"
     volumes:
       - ./src:/var/www/html
     environment:
