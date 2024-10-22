@@ -17,9 +17,9 @@ services:
   postgres:
     image: postgres:14
     environment:
-      POSTGRES_DB: database     # Replace with your database name
-      POSTGRES_USER: postgres        # Replace with your database user
-      POSTGRES_PASSWORD: postgres # Replace with your database password
+      POSTGRES_DB: ${POSTGRES_DB}   # Nama database
+      POSTGRES_USER: ${POSTGRES_USER}   # Mengambil username dari .env
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Mengambil password dari .env
     ports:
       - "${PGPORT:-5432}:5432" 
     volumes:
